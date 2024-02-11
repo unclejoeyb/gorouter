@@ -1,0 +1,24 @@
+GET http://localhost:8080/items
+
+### Add an item
+POST http://localhost:8080/items
+Content-Type: application/json
+
+{
+  "name": "Cheese",
+  "description": "Yellow cheese"
+}
+
+### Delete an item
+DELETE http://localhost:8080/items/00000000-0000-0000-0000-000000000000
+
+### Update an item
+PUT http://localhost:8080/items/146291cd-0268-4d51-8cf4-428dee8f1cfd
+Content-Type: application/json
+
+{
+  "id": "146291cd-0268-4d51-8cf4-428dee8f1cfd",
+  "name": "Oil",
+  "description": "Sunflower oil"
+}
+```
