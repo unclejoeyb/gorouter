@@ -9,7 +9,7 @@ import (
 
 func main() {
 	e := echo.New()
-	component := templates.hello("John")
+	component := hello.hello("John")
 	component.Render(context.Background(), os.Stdout)
 	e.GET("/", func(c echo.Context) error {
 		return component.Render(c.Response().Writer)
