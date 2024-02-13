@@ -3,9 +3,12 @@ package api
 import (
 	"encoding/json"
 	"net/http"
-
+	"context"
+	"os"
+	"./templates"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
+	"github.com/labstack/echo/v4"
 )
 
 type Item struct {
@@ -55,19 +58,19 @@ func (s *Server) createItem() http.HandlerFunc {
 	}
 }
 
+
+
 func (s *Server) listItems() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		if err := json.NewEncoder(w).Encode(s.shoppingList); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
+		e := echo.New()
+		component := templates/hello("John")
+		
 	}
 }
 
 func (s *Server) deleteItem() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		idStr, _ := mux.Vars(r)["id"]
+		idStr := mux.Vars(r)["id"]
 		id, err := uuid.Parse(idStr)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
