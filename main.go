@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"os"
-	"github.com/unclejoeyb/gorouter/tree/main/api/templates"
+
 	"github.com/labstack/echo"
 )
 
