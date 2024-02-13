@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"context"
 	"os"
-	"./templates"
+	"github.com/unclejoeyb/gorouter/tree/main/api/templates"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	"github.com/labstack/echo/v4"
@@ -32,12 +32,12 @@ func NewServer() *Server {
 	return s
 }
 
-func (s *Server) Routes() {
-	s.HandleFunc("/items", s.createItem()).Methods("POST")
-	s.HandleFunc("/items", s.listItems()).Methods("GET")
-	s.HandleFunc("/items/{id}", s.deleteItem()).Methods("DELETE")
-	s.HandleFunc("/items/{id}", s.updateItem()).Methods("PUT")
-}
+// func (s *Server) Routes() {
+// 	s.HandleFunc("/items", s.createItem()).Methods("POST")
+// 	s.HandleFunc("/items", s.listItems()).Methods("GET")
+// 	s.HandleFunc("/items/{id}", s.deleteItem()).Methods("DELETE")
+// 	s.HandleFunc("/items/{id}", s.updateItem()).Methods("PUT")
+// }
 
 
 func (s *Server) createItem() http.HandlerFunc {
@@ -62,8 +62,8 @@ func (s *Server) createItem() http.HandlerFunc {
 
 func (s *Server) listItems() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		e := echo.New()
-		component := templates/hello("John")
+		
+
 		
 	}
 }
